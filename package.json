@@ -1,0 +1,49 @@
+{
+    "name": "doc-merger",
+    "private": true,
+    "version": "1.0.0",
+    "main": "electron/main.js",
+    "description": "Premium Document Merger for PDFs and Images",
+    "author": "Antigravity",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "lint": "eslint .",
+        "preview": "vite preview",
+        "electron:dev": "concurrently \"npm run dev\" \"wait-on tcp:3000 && electron .\"",
+        "electron:build": "vite build && npx electron-builder"
+    },
+    "build": {
+        "appId": "com.antigravity.docmerger",
+        "productName": "DOC Merger",
+        "files": [
+            "dist/**/*",
+            "electron/**/*"
+        ],
+        "directories": {
+            "output": "release"
+        },
+        "win": {
+            "target": "nsis"
+        },
+        "nsis": {
+            "oneClick": false,
+            "allowToChangeInstallationDirectory": true
+        }
+    },
+    "dependencies": {
+        "@hello-pangea/dnd": "^17.0.0",
+        "lucide-react": "^0.363.0",
+        "pdf-lib": "^1.17.1",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-react": "^4.3.4",
+        "concurrently": "^8.2.2",
+        "electron": "^30.5.1",
+        "electron-builder": "^24.13.3",
+        "vite": "^5.4.11",
+        "wait-on": "^7.2.0"
+    }
+}
