@@ -26,6 +26,20 @@
         "win": {
             "target": "nsis"
         },
+        "mac": {
+            "target": [
+                "dmg",
+                "zip"
+            ],
+            "category": "public.app-category.utilities"
+        },
+        "linux": {
+            "target": [
+                "AppImage",
+                "deb"
+            ],
+            "category": "Utility"
+        },
         "nsis": {
             "oneClick": false,
             "allowToChangeInstallationDirectory": true
